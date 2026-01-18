@@ -1,0 +1,387 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="subway_entrance_template">
+    <static>true</static>
+    
+    <!-- 템플릿은 원점(0,0,0)에 배치 -->
+    <!-- 실제 위치는 world 파일의 <include> 태그에서 지정 -->
+    <pose>0 0 0 0 0 0</pose>
+
+    <link name="entrance_link">
+
+      <!-- ================= 바닥 플랫폼 ================= -->
+      <visual name="platform_visual">
+        <pose>0 0 0.075 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>3.0 2.5 0.15</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.7 0.7 0.7 1</ambient>
+          <diffuse>0.8 0.8 0.8 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+
+      <collision name="platform_collision">
+        <pose>0 0 0.075 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>3.0 2.5 0.15</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <!-- ================= 계단 3개 (간소화) ================= -->
+      <!-- 계단 1 -->
+      <visual name="step_1">
+        <pose>0 -2.4 0.45 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.2 0.3 0.15</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.9 0.7 0.3 1</ambient>
+          <diffuse>0.9 0.7 0.3 1</diffuse>
+          <specular>0.2 0.2 0.2 1</specular>
+        </material>
+      </visual>
+
+      <!-- 계단 2 -->
+      <visual name="step_2">
+        <pose>0 -2.1 0.3 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.2 0.3 0.15</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.9 0.7 0.3 1</ambient>
+          <diffuse>0.9 0.7 0.3 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 계단 3 -->
+      <visual name="step_3">
+        <pose>0 -1.7 0.15 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.2 0.3 0.15</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.9 0.7 0.3 1</ambient>
+          <diffuse>0.9 0.7 0.3 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- ================= back 벽 ================= -->
+      <visual name="back_wall">
+        <pose>0 2.5 0.6 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.65 0.15 1.2</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.4 0.4 0.4 1</ambient>
+          <diffuse>0.5 0.5 0.5 1</diffuse>
+          <specular>0.05 0.05 0.05 1</specular>
+        </material>
+      </visual>
+
+      <collision name="back_wall_collision">
+        <pose>0 1.175 0.6 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.65 0.15 1.2</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <!-- ================= 좌측 벽 ================= -->
+      <visual name="left_wall">
+        <pose>-1.25 0 0.6 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.15 5 1.2</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.4 0.4 0.4 1</ambient>
+          <diffuse>0.5 0.5 0.5 1</diffuse>
+          <specular>0.05 0.05 0.05 1</specular>
+        </material>
+      </visual>
+
+      <collision name="left_wall_collision">
+        <pose>-1.25 0 0.6 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.15 2.5 1.2</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <!-- ================= 우측 벽 ================= -->
+      <visual name="right_wall">
+        <pose>1.25 0 0.6 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.15 5 1.2</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.4 0.4 0.4 1</ambient>
+          <diffuse>0.5 0.5 0.5 1</diffuse>
+          <specular>0.05 0.05 0.05 1</specular>
+        </material>
+      </visual>
+
+      <collision name="right_wall_collision">
+        <pose>1.25 0 0.6 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.15 5 1.2</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <!-- ================= 수직 기둥 12개 ================= -->
+      <!-- 뒷벽 기둥 4개 -->
+      <visual name="post_back_1">
+        <pose>-0.88 2.425 1.365 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.04</radius>
+            <length>0.33</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.8 0.8 0.8 1</ambient>
+          <diffuse>0.9 0.9 0.9 1</diffuse>
+          <specular>0.5 0.5 0.5 1</specular>
+        </material>
+      </visual>
+
+      <visual name="post_back_2">
+        <pose>-0.29 2.425 1.365 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.04</radius>
+            <length>0.33</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.8 0.8 0.8 1</ambient>
+          <diffuse>0.9 0.9 0.9 1</diffuse>
+          <specular>0.5 0.5 0.5 1</specular>
+        </material>
+      </visual>
+
+      <visual name="post_back_3">
+        <pose>0.29 2.425 1.365 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.04</radius>
+            <length>0.33</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.8 0.8 0.8 1</ambient>
+          <diffuse>0.9 0.9 0.9 1</diffuse>
+          <specular>0.5 0.5 0.5 1</specular>
+        </material>
+      </visual>
+
+      <visual name="post_back_4">
+        <pose>0.88 2.425 1.365 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.04</radius>
+            <length>0.33</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.8 0.8 0.8 1</ambient>
+          <diffuse>0.9 0.9 0.9 1</diffuse>
+          <specular>0.5 0.5 0.5 1</specular>
+        </material>
+      </visual>
+
+      <!-- 좌측벽 기둥 4개 -->
+      <visual name="post_left_1">
+        <pose>-1.175 1.67 1.365 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.04</radius>
+            <length>0.33</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.8 0.8 0.8 1</ambient>
+          <diffuse>0.9 0.9 0.9 1</diffuse>
+          <specular>0.5 0.5 0.5 1</specular>
+        </material>
+      </visual>
+
+      <visual name="post_left_2">
+        <pose>-1.175 0.56 1.365 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.04</radius>
+            <length>0.33</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.8 0.8 0.8 1</ambient>
+          <diffuse>0.9 0.9 0.9 1</diffuse>
+          <specular>0.5 0.5 0.5 1</specular>
+        </material>
+      </visual>
+
+      <visual name="post_left_3">
+        <pose>-1.175 -0.56 1.365 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.04</radius>
+            <length>0.33</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.8 0.8 0.8 1</ambient>
+          <diffuse>0.9 0.9 0.9 1</diffuse>
+          <specular>0.5 0.5 0.5 1</specular>
+        </material>
+      </visual>
+
+      <visual name="post_left_4">
+        <pose>-1.175 -1.67 1.365 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.04</radius>
+            <length>0.33</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.8 0.8 0.8 1</ambient>
+          <diffuse>0.9 0.9 0.9 1</diffuse>
+          <specular>0.5 0.5 0.5 1</specular>
+        </material>
+      </visual>
+
+      <!-- 우측벽 기둥 4개 -->
+      <visual name="post_right_1">
+        <pose>1.175 1.67 1.365 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.04</radius>
+            <length>0.33</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.8 0.8 0.8 1</ambient>
+          <diffuse>0.9 0.9 0.9 1</diffuse>
+          <specular>0.5 0.5 0.5 1</specular>
+        </material>
+      </visual>
+
+      <visual name="post_right_2">
+        <pose>1.175 0.56 1.365 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.04</radius>
+            <length>0.33</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.8 0.8 0.8 1</ambient>
+          <diffuse>0.9 0.9 0.9 1</diffuse>
+          <specular>0.5 0.5 0.5 1</specular>
+        </material>
+      </visual>
+
+      <visual name="post_right_3">
+        <pose>1.175 -0.56 1.365 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.04</radius>
+            <length>0.33</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.8 0.8 0.8 1</ambient>
+          <diffuse>0.9 0.9 0.9 1</diffuse>
+          <specular>0.5 0.5 0.5 1</specular>
+        </material>
+      </visual>
+
+      <visual name="post_right_4">
+        <pose>1.175 -1.67 1.365 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.04</radius>
+            <length>0.33</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.8 0.8 0.8 1</ambient>
+          <diffuse>0.9 0.9 0.9 1</diffuse>
+          <specular>0.5 0.5 0.5 1</specular>
+        </material>
+      </visual>
+
+      <!-- ================= 수평 난간 ================= -->
+      <!-- 뒷벽 난간 -->
+      <visual name="handrail_back">
+        <pose>0 2.425 1.53 0 1.5708 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.04</radius>
+            <length>2.5</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.8 0.8 0.8 1</ambient>
+          <diffuse>0.9 0.9 0.9 1</diffuse>
+          <specular>0.5 0.5 0.5 1</specular>
+        </material>
+      </visual>
+
+      <!-- 좌측 난간 -->
+      <visual name="handrail_left">
+        <pose>-1.175 0 1.53 1.5708 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.04</radius>
+            <length>4.85</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.8 0.8 0.8 1</ambient>
+          <diffuse>0.9 0.9 0.9 1</diffuse>
+          <specular>0.5 0.5 0.5 1</specular>
+        </material>
+      </visual>
+
+      <!-- 우측 난간 -->
+      <visual name="handrail_right">
+        <pose>1.175 0 1.53 1.5708 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.04</radius>
+            <length>4.85</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.8 0.8 0.8 1</ambient>
+          <diffuse>0.9 0.9 0.9 1</diffuse>
+          <specular>0.5 0.5 0.5 1</specular>
+        </material>
+      </visual>
+
+    </link>
+  </model>
+</sdf>

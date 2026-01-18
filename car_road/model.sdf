@@ -1,0 +1,243 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="car_road">
+    <static>true</static>
+    <link name="road_link">
+
+      <!-- ================= 메인 도로 ================= -->
+      <visual name="road_surface">
+        <pose>0 0 0.05 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>145 8 0.1</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.2 0.2 0.2 1</ambient>
+          <diffuse>0.3 0.3 0.3 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="road_collision">
+        <pose>0 0 0.05 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>145 8 0.1</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <!-- ================= 중앙선 (Center Line) ================= -->
+      <visual name="center_line_1">
+        <pose>-65 0 0.11 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>5 0.15 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1 1 0 1</ambient>
+          <diffuse>1 1 0 1</diffuse>
+        </material>
+      </visual>
+
+      <visual name="center_line_2">
+        <pose>-55 0 0.11 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>5 0.15 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1 1 0 1</ambient>
+          <diffuse>1 1 0 1</diffuse>
+        </material>
+      </visual>
+
+      <visual name="center_line_3">
+        <pose>-45 0 0.11 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>5 0.15 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1 1 0 1</ambient>
+          <diffuse>1 1 0 1</diffuse>
+        </material>
+      </visual>
+
+      <visual name="center_line_4">
+        <pose>-35 0 0.11 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>5 0.15 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1 1 0 1</ambient>
+          <diffuse>1 1 0 1</diffuse>
+        </material>
+      </visual>
+
+      <visual name="center_line_5">
+        <pose>-25 0 0.11 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>5 0.15 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1 1 0 1</ambient>
+          <diffuse>1 1 0 1</diffuse>
+        </material>
+      </visual>
+
+      <visual name="center_line_6">
+        <pose>-15 0 0.11 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>5 0.15 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1 1 0 1</ambient>
+          <diffuse>1 1 0 1</diffuse>
+        </material>
+      </visual>
+
+      <visual name="center_line_7">
+        <pose>-5 0 0.11 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>5 0.15 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1 1 0 1</ambient>
+          <diffuse>1 1 0 1</diffuse>
+        </material>
+      </visual>
+
+      <visual name="center_line_8">
+        <pose>5 0 0.11 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>5 0.15 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1 1 0 1</ambient>
+          <diffuse>1 1 0 1</diffuse>
+        </material>
+      </visual>
+
+      <visual name="center_line_9">
+        <pose>15 0 0.11 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>5 0.15 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1 1 0 1</ambient>
+          <diffuse>1 1 0 1</diffuse>
+        </material>
+      </visual>
+
+      <visual name="center_line_10">
+        <pose>25 0 0.11 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>5 0.15 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1 1 0 1</ambient>
+          <diffuse>1 1 0 1</diffuse>
+        </material>
+      </visual>
+
+      <visual name="center_line_11">
+        <pose>35 0 0.11 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>5 0.15 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1 1 0 1</ambient>
+          <diffuse>1 1 0 1</diffuse>
+        </material>
+      </visual>
+
+      <visual name="center_line_12">
+        <pose>45 0 0.11 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>5 0.15 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1 1 0 1</ambient>
+          <diffuse>1 1 0 1</diffuse>
+        </material>
+      </visual>
+
+      <visual name="center_line_13">
+        <pose>55 0 0.11 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>5 0.15 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1 1 0 1</ambient>
+          <diffuse>1 1 0 1</diffuse>
+        </material>
+      </visual>
+
+      <visual name="center_line_14">
+        <pose>65 0 0.11 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>5 0.15 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1 1 0 1</ambient>
+          <diffuse>1 1 0 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- ================= 왼쪽 차선 (Left Lane Line) ================= -->
+      <visual name="left_lane_line">
+        <pose>0 -3.8 0.11 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>145 0.15 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1 1 1 1</ambient>
+          <diffuse>1 1 1 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- ================= 오른쪽 차선 (Right Lane Line) ================= -->
+      <visual name="right_lane_line">
+        <pose>0 3.8 0.11 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>145 0.15 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1 1 1 1</ambient>
+          <diffuse>1 1 1 1</diffuse>
+        </material>
+      </visual>
+
+    </link>
+  </model>
+</sdf>

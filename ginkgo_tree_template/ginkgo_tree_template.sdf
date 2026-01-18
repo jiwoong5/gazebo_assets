@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="ginkgo_tree">
+    <static>true</static>
+    <link name="trunk">
+      <visual name="trunk_visual">
+        <geometry>
+          <cylinder>
+            <radius>0.15</radius>
+            <length>2.5</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.4 0.3 0.1 1</ambient>
+        </material>
+      </visual>
+      <visual name="foliage_visual">
+        <pose>0 0 1.8 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.8</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <ambient>0.2 0.7 0.2 1</ambient>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

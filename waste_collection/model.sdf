@@ -1,0 +1,544 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="waste_collection_facility">
+    <static>true</static>
+    
+    <!-- ================= 메인 외곽 벽과 넓은 바닥 ================= -->
+    <link name="outer_ground">
+      <!-- 넓은 외부 바닥 (전체 시설 바닥) -->
+      <visual name="outer_floor">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>40 30 0.1</size>  <!-- 크게 확장: 40m × 30m -->
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.5 0.5 0.5 1</ambient>
+          <diffuse>0.6 0.6 0.6 1</diffuse>
+        </material>
+      </visual>
+      
+      <collision name="outer_floor_collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>40 30 0.1</size>
+          </box>
+        </geometry>
+      </collision>
+      
+      <!-- 외곽 담장 (Perimeter Wall) -->
+      <!-- 앞쪽 담장 (입구쪽, 중간에 뚫림) -->
+      <visual name="front_wall_left">
+        <pose>-17.5 -15 2 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>5 0.3 4</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.6 0.6 0.6 1</ambient>
+          <diffuse>0.7 0.7 0.7 1</diffuse>
+        </material>
+      </visual>
+      
+      <visual name="front_wall_right">
+        <pose>17.5 -15 2 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>5 0.3 4</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.6 0.6 0.6 1</ambient>
+          <diffuse>0.7 0.7 0.7 1</diffuse>
+        </material>
+      </visual>
+      
+      <!-- 왼쪽 담장 -->
+      <visual name="left_wall_outer">
+        <pose>-20 0 2 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.3 30 4</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.6 0.6 0.6 1</ambient>
+          <diffuse>0.7 0.7 0.7 1</diffuse>
+        </material>
+      </visual>
+      
+      <!-- 오른쪽 담장 -->
+      <visual name="right_wall_outer">
+        <pose>20 0 2 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.3 30 4</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.6 0.6 0.6 1</ambient>
+          <diffuse>0.7 0.7 0.7 1</diffuse>
+        </material>
+      </visual>
+      
+      <!-- 뒷쪽 담장 -->
+      <visual name="back_wall_outer">
+        <pose>0 15 2 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>40 0.3 4</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.6 0.6 0.6 1</ambient>
+          <diffuse>0.7 0.7 0.7 1</diffuse>
+        </material>
+      </visual>
+
+    </link>
+
+    <!-- ================= 기존 메인 창고 건물 (크기 유지) ================= -->
+    <link name="main_building">
+      <!-- 바닥 (기존보다 약간 높게) -->
+      <visual name="floor">
+        <pose>0 0 0.2 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>15 12 0.2</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.4 0.4 0.4 1</ambient>
+          <diffuse>0.5 0.5 0.5 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="floor_collision">
+        <pose>0 0 0.2 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>15 12 0.2</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <!-- 뒷벽 -->
+      <visual name="back_wall">
+        <pose>0 6 3 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>15 0.3 6</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.5 0.5 0.5 1</ambient>
+          <diffuse>0.6 0.6 0.6 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="back_wall_collision">
+        <pose>0 6 3 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>15 0.3 6</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <!-- 좌측 벽 -->
+      <visual name="left_wall">
+        <pose>-7.5 0 3 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.3 12 6</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.5 0.5 0.5 1</ambient>
+          <diffuse>0.6 0.6 0.6 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="left_wall_collision">
+        <pose>-7.5 0 3 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.3 12 6</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <!-- 우측 벽 -->
+      <visual name="right_wall">
+        <pose>7.5 0 3 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.3 12 6</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.5 0.5 0.5 1</ambient>
+          <diffuse>0.6 0.6 0.6 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="right_wall_collision">
+        <pose>7.5 0 3 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.3 12 6</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <!-- 지붕 -->
+      <visual name="roof">
+        <pose>0 0 6.2 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>15 12 0.4</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.3 0.3 0.3 1</ambient>
+          <diffuse>0.4 0.4 0.4 1</diffuse>
+        </material>
+      </visual>
+
+
+    </link>
+
+    <!-- ================= 트럭 진입 램프 및 주차 공간 ================= -->
+    <link name="ramp_area">
+      <!-- 트럭 진입 램프 -->
+      <visual name="ramp">
+        <pose>0 -9 0.3 0.15 0 0</pose>
+        <geometry>
+          <box>
+            <size>6 4 0.2</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.3 0.3 0.3 1</ambient>
+          <diffuse>0.4 0.4 0.4 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="ramp_collision">
+        <pose>0 -9 0.3 0.15 0 0</pose>
+        <geometry>
+          <box>
+            <size>6 4 0.2</size>
+          </box>
+        </geometry>
+      </collision>
+      
+      <!-- 주차 공간 마킹 -->
+      <visual name="parking_space_1">
+        <pose>-8 -5 0.02 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>4 2.5 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.9 0.9 0.1 0.5</ambient>
+        </material>
+      </visual>
+      
+      <visual name="parking_space_2">
+        <pose>8 -5 0.02 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>4 2.5 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.9 0.9 0.1 0.5</ambient>
+        </material>
+      </visual>
+      
+      <!-- 주차 공간 번호 -->
+      <visual name="parking_number_1">
+        <pose>-8 -5 0.03 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.8 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      
+      <visual name="parking_number_2">
+        <pose>8 -5 0.03 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.8 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+
+    <!-- ================= 대형 쓰레기 컨테이너들 ================= -->
+    <link name="containers">
+      <!-- 컨테이너 1 -->
+      <visual name="container_1">
+        <pose>-4 3 0.85 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2 1.5 1.7</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.2 0.4 0.2 1</ambient>
+          <diffuse>0.3 0.5 0.3 1</diffuse>
+        </material>
+      </visual>
+      
+      <collision name="container_1_collision">
+        <pose>-4 3 0.85 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2 1.5 1.7</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <!-- 컨테이너 2 -->
+      <visual name="container_2">
+        <pose>0 3 0.85 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2 1.5 1.7</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.2 0.4 0.2 1</ambient>
+          <diffuse>0.3 0.5 0.3 1</diffuse>
+        </material>
+      </visual>
+      
+      <collision name="container_2_collision">
+        <pose>0 3 0.85 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2 1.5 1.7</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <!-- 컨테이너 3 -->
+      <visual name="container_3">
+        <pose>4 3 0.85 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2 1.5 1.7</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.2 0.4 0.2 1</ambient>
+          <diffuse>0.3 0.5 0.3 1</diffuse>
+        </material>
+      </visual>
+      
+      <collision name="container_3_collision">
+        <pose>4 3 0.85 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2 1.5 1.7</size>
+          </box>
+        </geometry>
+      </collision>
+      
+      <!-- 추가 컨테이너 (외부 공간에) -->
+      <visual name="container_4">
+        <pose>-12 0 0.85 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.5 2 1.8</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.8 0.5 0.1 1</ambient>
+          <diffuse>0.9 0.6 0.2 1</diffuse>
+        </material>
+      </visual>
+      
+      <visual name="container_5">
+        <pose>12 0 0.85 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.5 2 1.8</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.8 0.5 0.1 1</ambient>
+          <diffuse>0.9 0.6 0.2 1</diffuse>
+        </material>
+      </visual>
+    </link>
+
+    <!-- ================= 쓰레기 더미들 ================= -->
+    <link name="garbage_piles">
+      <!-- 쓰레기 더미 1 -->
+      <visual name="garbage_pile_1">
+        <pose>-5 0 0.5 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>1.5 1.5 1.0</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 1</ambient>
+          <diffuse>0.15 0.15 0.15 1</diffuse>
+        </material>
+      </visual>
+      
+      <collision name="garbage_pile_1_collision">
+        <pose>-5 0 0.5 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>1.5 1.5 1.0</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <!-- 쓰레기 더미 2 -->
+      <visual name="garbage_pile_2">
+        <pose>-3 -1 0.4 0 0 0.5</pose>
+        <geometry>
+          <box>
+            <size>1.2 1.2 0.8</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 1</ambient>
+          <diffuse>0.15 0.15 0.15 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 쓰레기 더미 3 -->
+      <visual name="garbage_pile_3">
+        <pose>5 0 0.6 0 0 -0.3</pose>
+        <geometry>
+          <box>
+            <size>1.8 1.8 1.2</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 1</ambient>
+          <diffuse>0.15 0.15 0.15 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 쓰레기 더미 4 (외부 공간에 추가) -->
+      <visual name="garbage_pile_4">
+        <pose>-10 -10 0.3 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.0 2.0 0.8</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 1</ambient>
+          <diffuse>0.15 0.15 0.15 1</diffuse>
+        </material>
+      </visual>
+      
+      <!-- 쓰레기 더미 5 (외부 공간에 추가) -->
+      <visual name="garbage_pile_5">
+        <pose>10 -10 0.4 0 0 0.2</pose>
+        <geometry>
+          <box>
+            <size>2.2 2.2 1.0</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 1</ambient>
+          <diffuse>0.15 0.15 0.15 1</diffuse>
+        </material>
+      </visual>
+    </link>
+
+    <!-- ================= 사인보드 및 기타 ================= -->
+    <link name="signs_and_fences">
+      <!-- 사인보드 -->
+      <visual name="sign_board">
+        <pose>-15 -14 2.5 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>3 0.1 2</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.9 0.7 0.1 1</ambient>
+          <diffuse>1 0.8 0.2 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 사인 텍스트 -->
+      <visual name="sign_text">
+        <pose>-15 -14.1 2.5 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.4 0.05 1.2</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 1</ambient>
+          <diffuse>0.1 0.1 0.1 1</diffuse>
+        </material>
+      </visual>
+      
+      <!-- 보안등 (Security Light) -->
+      <visual name="security_light_1">
+        <pose>-18 0 5 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.5 0.5 0.5</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.9 0.9 0.1 1</ambient>
+          <diffuse>1 1 0.2 1</diffuse>
+        </material>
+      </visual>
+      
+      <visual name="security_light_2">
+        <pose>18 0 5 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.5 0.5 0.5</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.9 0.9 0.1 1</ambient>
+          <diffuse>1 1 0.2 1</diffuse>
+        </material>
+      </visual>
+      
+      <!-- CCTV 카메라 -->
+      <visual name="cctv_1">
+        <pose>-18 12 4 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.3 0.3 0.3</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 1</ambient>
+          <diffuse>0.2 0.2 0.2 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+  </model>
+</sdf>
